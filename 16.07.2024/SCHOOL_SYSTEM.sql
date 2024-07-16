@@ -6,7 +6,7 @@ FirstName varchar(20));
 
 Create Table TeacherDetails(
 TeacherDetailID INT PRIMARY KEY,
-TeacherID INT,
+TeacherID INT UNIQUE,
 HireDate DATE,
 FOREIGN KEY (TeacherID) REFERENCES Teachers(TeacherID));
 
