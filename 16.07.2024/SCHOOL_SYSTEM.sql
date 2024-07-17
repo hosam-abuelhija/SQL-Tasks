@@ -1,15 +1,16 @@
 Create Database School_System;
 
 Create Table Teachers(
-TeacherID int PRIMARY KEY,
+ID int PRIMARY KEY,
 FirstName varchar(20));
 
 Create Table TeacherDetails(
 TeacherDetailID INT PRIMARY KEY,
-TeacherID INT,
+TeacherID INT UNIQUE,
 HireDate DATE,
-FOREIGN KEY (TeacherID) REFERENCES Teachers(TeacherID));
-
+FOREIGN KEY (TeacherID) REFERENCES Teachers(ID));
+Drop table Teachers;
+Drop table TeacherDetails;
 CREATE TABLE Courses (
 CourseID INT PRIMARY KEY,
 CourseName VARCHAR(20),
@@ -71,3 +72,9 @@ SELECT * FROM TeacherDetails;
 SELECT * FROM Courses;
 SELECT * FROM Students;
 SELECT * FROM Student_Courses;
+
+
+--ALTER TABLE TeacherDetails
+--ALTER COLUMN TeacherID INT Unique;
+
+drop table TeacherDetails;
