@@ -95,39 +95,39 @@ INSERT INTO Books_Categories (BookID, CategorieID) VALUES
 
 --one--TO--many
 --INNER
-SELECT Books.bookName, Authors.authorName FROM Books
- JOIN Authors ON Books.authorID = Authors.authorID;
+SELECT Books.Name, Authors.FirstName, Authors.LastName FROM Books
+ JOIN Authors ON Books.authorID = Authors.ID;
 
 --LEFT
- SELECT  Books.bookName,Authors.authorID FROM Books
-LEFT JOIN Authors ON Books.authorID = Authors.authorID;
+ SELECT  Books.Name, Authors.FirstName, Authors.LastName FROM Books
+LEFT JOIN Authors ON Books.authorID = Authors.ID;
 
 --RIGHT
-SELECT Books.bookName, Authors.authorName FROM Books
-RIGHT JOIN Authors ON Books.authorID = Authors.authorID;
+SELECT Books.Name, Authors.FirstName, Authors.LastName FROM Books
+RIGHT JOIN Authors ON Books.authorID = Authors.ID;
 
 --FULL
-SELECT Books.bookName, Authors.authorName FROM Books
-FULL OUTER JOIN Authors ON Books.authorID = Authors.authorID;
+SELECT Books.Name, Authors.FirstName, Authors.LastName FROM Books
+FULL OUTER JOIN Authors ON Books.authorID = Authors.ID;
 
 ---------------------------------------------------------------------------
 --many--TO--many
 --INNER
-SELECT Books.bookName, Category.categoryName FROM Books
-JOIN CategoryBooks ON Books.bookID = CategoryBooks.bookID 
-JOIN Category ON CategoryBooks.categoryID = Category.categoryID;
+SELECT Books.Name, Categories.Categorie FROM Books
+JOIN Books_Categories ON Books.ID = Books_Categories.bookID 
+JOIN Categories ON Books_Categories.CategorieID = Categories.ID;
 
 --LEFT
-SELECT Books.bookName, Category.categoryName FROM Books
-LEFT JOIN CategoryBooks ON Books.bookID = CategoryBooks.bookID LEFT
-JOIN Category ON CategoryBooks.categoryID = Category.categoryID;
+SELECT Books.Name, Categories.Categorie FROM Books
+LEFT JOIN Books_Categories ON Books.ID = Books_Categories.bookID 
+LEFT JOIN Categories ON Books_Categories.CategorieID = Categories.ID;
 
 --RHIGHT
-SELECT Books.bookName, Category.categoryName FROM Books
-RIGHT JOIN CategoryBooks ON Books.bookID = CategoryBooks.bookID RIGHT
-JOIN Category ON CategoryBooks.categoryID = Category.categoryID;
+SELECT Books.Name, Categories.Categorie FROM Books
+RIGHT JOIN Books_Categories ON Books.ID = Books_Categories.bookID 
+RIGHT JOIN Categories ON Books_Categories.CategorieID = Categories.ID;
 
 --FULL
-SELECT Books.bookName, Category.categoryName FROM Books
-FULL OUTER JOIN CategoryBooks ON Books.bookID = CategoryBooks.bookID
-FULL OUTER JOIN Category ON CategoryBooks.categoryID = Category.categoryID;
+SELECT Books.Name, Categories.Categorie FROM Books
+FULL OUTER JOIN Books_Categories ON Books.ID = Books_Categories.bookID 
+FULL OUTER JOIN Categories ON Books_Categories.CategorieID = Categories.ID;
